@@ -1,4 +1,6 @@
 <%- include('./design/admin_header.ejs'); %>
+
+<div class="main">
 <%- include('./design/admin_navbar.ejs'); %>
     <div class="container-fluid">
       <div class="page-title">
@@ -45,47 +47,32 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td class="text-center"><input type="checkbox"></td>
-            <td>随便一个名称</td>
-            <td>小小</td>
-            <td>潮科技</td>
-            <td class="text-center">2016/10/07</td>
-            <td class="text-center">已发布</td>
-            <td class="text-center">
-              <a href="javascript:;" class="btn btn-default btn-xs">编辑</a>
-              <a href="javascript:;" class="btn btn-danger btn-xs">删除</a>
-            </td>
-          </tr>
-          <tr>
-            <td class="text-center"><input type="checkbox"></td>
-            <td>随便一个名称</td>
-            <td>小小</td>
-            <td>潮科技</td>
-            <td class="text-center">2016/10/07</td>
-            <td class="text-center">已发布</td>
-            <td class="text-center">
-              <a href="javascript:;" class="btn btn-default btn-xs">编辑</a>
-              <a href="javascript:;" class="btn btn-danger btn-xs">删除</a>
-            </td>
-          </tr>
-          <tr>
-            <td class="text-center"><input type="checkbox"></td>
-            <td>随便一个名称</td>
-            <td>小小</td>
-            <td>潮科技</td>
-            <td class="text-center">2016/10/07</td>
-            <td class="text-center">已发布</td>
-            <td class="text-center">
-              <a href="javascript:;" class="btn btn-default btn-xs">编辑</a>
-              <a href="javascript:;" class="btn btn-danger btn-xs">删除</a>
-            </td>
-          </tr>
+
         </tbody>
       </table>
     </div>
   </div>
-
   <%- include('./design/admin_aside.ejs'); %>
 
   <%- include('./design/admin_footer.ejs'); %>
+
+  <script type="text/template" id="postTemp">
+    {{each data as value index}}
+    <tr>
+        <td class="text-center"><input type="checkbox"></td>
+        <td>{{value.title}}</td>
+        <td>{{value.nickname}}</td>
+        <td>{{value.name}}</td>
+        <td class="text-center">{{value.created}}</td>
+        <td class="text-center">{{value.status == 'published'?'已发布':'草稿'}}</td>
+        <td class="text-center">
+          <a href="javascript:;" class="btn btn-default btn-xs">编辑</a>
+          <a href="javascript:;" class="btn btn-danger btn-xs">删除</a>
+        </td>
+      </tr>
+    {{/each}}
+  </script>
+  <script src="/assets/vendors/bootstrappaginator/bootstrap-paginator.min.js"></script>
+  <script src="/assets/vendors/template/template.js"></script>
+  <script src="/assets/js/post.js"></script>
+
