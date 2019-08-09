@@ -6,6 +6,7 @@ const pagesController = require('./controllers/pagesController');
 const userController = require('./controllers/userController');
 const postController = require('./controllers/postController');
 const cateController = require('./controllers/cateController');
+const uploadController = require('./controllers/uploadController');
 
 
 // 配置路由
@@ -44,7 +45,7 @@ router.get('/detail', pagesController.getDetailPage);
 router.get('/list', pagesController.getListPage);
 
 // 业务处理部分
-router.get('/',pagesController.getAdminIndexPage);
+router.get('/',pagesController.getIndexPage);
 
 
 // 业务处理路由
@@ -52,5 +53,10 @@ router.get('/',pagesController.getAdminIndexPage);
 router.post('/login',userController.login);
 router.get('/getAllPost',postController.getAllPost);
 router.get('/getAllCate',cateController.getAllCate);
+
+// 实现文件的上传
+router.post('/uploadFile',uploadController.uploadFile);
+// 实现文章的上传
+router.post('/addPost',postController.addPost);
 
 module.exports = router;

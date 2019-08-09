@@ -19,6 +19,8 @@ exports.login = (email,callback)=>{
             callback(err);
         }else{
             callback(null,results[0]);
+            // console.log(results);
+            
         }
     });
 }
