@@ -7,7 +7,7 @@ const userController = require('./controllers/userController');
 const postController = require('./controllers/postController');
 const cateController = require('./controllers/cateController');
 const uploadController = require('./controllers/uploadController');
-
+const optionsController = require('./controllers/optionsController');
 
 // 配置路由
 // 后台页面
@@ -51,12 +51,28 @@ router.get('/',pagesController.getIndexPage);
 // 业务处理路由
 // 用户登陆验证
 router.post('/login',userController.login);
-router.get('/getAllPost',postController.getAllPost);
+
+// 分类处理部分
 router.get('/getAllCate',cateController.getAllCate);
+router.get('/delCategory',cateController.delCategory);
+router.post('addCategory',cateController.addCategory);
+router.post('/editCategory',cateController.editCategory);
+
+
+// 文章处理部分
+router.get('/getAllPost',postController.getAllPost);
+router.get('/getPostById',postController.getPostById);
+router.post('/editPostById',postController.editPostById);
+router.get('/delPostById',postController.delPostById);
+// 实现文章的上传
+router.post('/addPost',postController.addPost);
 
 // 实现文件的上传
 router.post('/uploadFile',uploadController.uploadFile);
-// 实现文章的上传
-router.post('/addPost',postController.addPost);
+
+// potions 菜单项处理部分
+router.post('/addMenu',optionsController.addMenu);
+router.get('/getOptions',optionsController.getOptions);
+router.post('/updateOptions',optionsController.updateOptions);
 
 module.exports = router;

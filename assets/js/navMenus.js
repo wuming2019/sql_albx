@@ -1,0 +1,13 @@
+$(function(){
+    $('.btnAdd').on('click',function(){
+        $.ajax({
+            type:'post',
+            url:'/addMenu',
+            data:$('form').serialize(),
+            dataType:'json',
+            success:function(res){
+                console.log(res)
+            }
+        })
+    })
+})

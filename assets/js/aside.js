@@ -4,7 +4,7 @@ $(function () {
 	let menuSettings = $('#menu-settings');
 	// 获取当前路由名称
 	let routerName = itcast.getRouterName(location.href);
-	console.log(routerName);
+	// console.log(routerName);
 	
 	// 判断是否满足条件
 	if (routerName == 'posts' || routerName == 'post-add' || routerName == 'categories') {

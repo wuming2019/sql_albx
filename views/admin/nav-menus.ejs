@@ -1,11 +1,5 @@
 <%- include('./design/admin_header.ejs'); %>
-    <nav class="navbar">
-      <button class="btn btn-default navbar-btn fa fa-bars"></button>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="profile.php"><i class="fa fa-user"></i>个人中心</a></li>
-        <li><a href="logout.php"><i class="fa fa-sign-out"></i>退出</a></li>
-      </ul>
-    </nav>
+<%- include('./design/admin_navbar.ejs');%>
     <div class="container-fluid">
       <div class="page-title">
         <h1>导航菜单</h1>
@@ -28,10 +22,10 @@
             </div>
             <div class="form-group">
               <label for="href">链接</label>
-              <input id="href" class="form-control" name="href" type="text" placeholder="链接">
+              <input id="href" class="form-control" name="link" type="text" placeholder="链接">
             </div>
             <div class="form-group">
-              <button class="btn btn-primary" type="submit">添加</button>
+              <input class="btn btn-primary btnAdd" type="button" value="添加">
             </div>
           </form>
         </div>
@@ -88,3 +82,4 @@
   <%- include('./design/admin_aside.ejs'); %>
 
   <%- include('./design/admin_footer.ejs'); %>
+  <script src="/assets/js/navMenus.js"></script>

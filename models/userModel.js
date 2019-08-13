@@ -12,9 +12,11 @@ var connection = mysql.createConnection({
 
 exports.login = (email,callback)=>{
     // 创建sql语句
-    var sql = `select * from users where email = "${email}"`;
+    // var sql = `select * from users where email = "${email}"`;
+    // 参数占位符，后期你根据占位符的数量传入相应的参数，？不再需要考虑是否有引号
+    var sql = `select * from users where email = ?`
     // 调用mysql模块
-    connection. query(sql,(err,results)=>{
+    connection. query(sql,[email],(err,results)=>{
         if(err) {
             callback(err);
         }else{

@@ -1,6 +1,6 @@
 <%- include('./design/admin_header.ejs'); %>
 
-<div class="main">
+<!-- <div class="main"> -->
 <%- include('./design/admin_navbar.ejs'); %>
     <div class="container-fluid">
       <div class="page-title">
@@ -8,23 +8,23 @@
         <a href="post-add.html" class="btn btn-primary btn-xs">写文章</a>
       </div>
       <!-- 有错误信息时展示 -->
-      <!-- <div class="alert alert-danger">
-        <strong>错误！</strong>发生XXX错误
-      </div> -->
+      <div class="alert alert-danger" style="display: none">
+        <strong>提示！</strong> <span>发生XXX错误</span>
+      </div>
       <div class="page-action">
         <!-- show when multiple checked -->
         <a class="btn btn-danger btn-sm" href="javascript:;" style="display: none">批量删除</a>
         <form class="form-inline">
-          <select name="" class="form-control input-sm">
+          <select name="" class="form-control input-sm cateSelector">
             <option value="">所有分类</option>
             <option value="">未分类</option>
           </select>
-          <select name="" class="form-control input-sm">
-            <option value="">所有状态</option>
-            <option value="">草稿</option>
-            <option value="">已发布</option>
+          <select name="" class="form-control input-sm statuSelector">
+            <option value="all">所有状态</option>
+            <option value="drafted">草稿</option>
+            <option value="published">已发布</option>
           </select>
-          <button class="btn btn-default btn-sm">筛选</button>
+          <button class="btn btn-default btn-sm btn-search">筛选</button>
         </form>
         <ul class="pagination pagination-sm pull-right">
           <li><a href="#">上一页</a></li>
@@ -66,13 +66,13 @@
         <td class="text-center">{{value.created}}</td>
         <td class="text-center">{{value.status == 'published'?'已发布':'草稿'}}</td>
         <td class="text-center">
-          <a href="javascript:;" class="btn btn-default btn-xs">编辑</a>
-          <a href="javascript:;" class="btn btn-danger btn-xs">删除</a>
+          <a href="/admin/post-add?id={{value.id}}" class="btn btn-default btn-xs">编辑</a>
+          <a href="{{value.id}}:;" class="btn btn-danger btn-xs btnDel" data-id='{{value.id}}'>删除</a>
         </td>
       </tr>
     {{/each}}
   </script>
   <script src="/assets/vendors/bootstrappaginator/bootstrap-paginator.min.js"></script>
   <script src="/assets/vendors/template/template.js"></script>
-  <script src="/assets/js/post.js"></script>
+  <script src="/assets/js/posts.js"></script>
 
